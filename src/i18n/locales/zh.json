@@ -1,0 +1,171 @@
+{
+  "_meta": {
+    "status": "Core nav + key screens translated. Reviewed for Singapore Simplified Chinese. Recycling-critical item guidance (data/recyclables.ts) is intentionally NOT translated here."
+  },
+  "lang": {
+    "label": "语言",
+    "en": "English",
+    "zh": "中文",
+    "ms": "Bahasa Melayu",
+    "ta": "தமிழ்"
+  },
+  "common": {
+    "next": "下一步",
+    "back": "返回",
+    "cancel": "取消",
+    "done": "完成",
+    "tryAgain": "再试一次",
+    "comingSoon": "即将推出",
+    "locked": "已锁定",
+    "loading": "加载中"
+  },
+  "nav": {
+    "home": "主页",
+    "streaks": "连续记录",
+    "rewards": "奖励",
+    "extra": "更多",
+    "settings": "设置"
+  },
+  "onboarding": {
+    "welcomeTagline": "建立在 Return Right 之上的趣味平台。回收、累积连续记录、装扮你的伙伴。",
+    "getStarted": "开始 →",
+    "letsGo": "出发吧",
+    "slide1Title": "真正算数的回收",
+    "slide1Body": "ReLoop 建立在新加坡 Return Right 押金计划之上。每退还一个容器都能赚取奖励——但只有真正退还后才算数。",
+    "slide2Title": "建立每周连续记录",
+    "slide2Body": "每周至少退还一个容器，保持连续记录。漏掉一周就会重置——把它变成习惯，而不是负担。",
+    "slide3Title": "正确回收，而不只是经常回收",
+    "slide3Body": "不确定某样东西能否回收？丢弃前先查一查。放错东西会毁掉整批回收物。",
+    "didYouKnow": "你知道吗？"
+  },
+  "auth": {
+    "welcome": "欢迎来到 ReLoop",
+    "subtitle": "使用 Google 登录，让连续记录属于你自己——每人一个账户。",
+    "continueWithGoogle": "使用 Google 继续",
+    "orDivider": "或",
+    "emailFallback": "改用电子邮件 + 密码",
+    "useGoogle": "改用 Google",
+    "displayName": "显示名称（可选）",
+    "displayNamePlaceholder": "环保斗士",
+    "email": "电子邮件",
+    "emailPlaceholder": "you@example.com",
+    "password": "密码",
+    "passwordPlaceholder": "••••••",
+    "continue": "继续",
+    "errorEmail": "请输入有效的电子邮件地址。",
+    "errorPassword": "密码至少需要 4 个字符。",
+    "googleUnavailable": "尚未配置 Google 登录。请设置 VITE_GOOGLE_CLIENT_ID，或使用下方的电子邮件。",
+    "demoNote": "演示版本：Google 登录是真实的；电子邮件登录和手机 OTP 为占位功能。不会发送短信。"
+  },
+  "avatar": {
+    "title": "选择你的伙伴",
+    "subtitle": "你将用从真实退还中赚取的积分来装扮它。",
+    "confirm": "就是它了"
+  },
+  "home": {
+    "welcomeBack": "欢迎回来",
+    "weeklyStreak": "每周连续记录",
+    "weeks": "周",
+    "secured": "本周已达标。做得好！",
+    "keepAlive": "本周退还一个容器，保持连续记录。",
+    "cooled": "你的连续记录冷却了——退还一次重新开始。",
+    "pointsBalance": "积分余额",
+    "earningLeft": "本周还能赚积分的退还次数",
+    "logReturn": "记录一次退还",
+    "verifiedOnly": "积分只来自已验证的退还——绝不靠自觉申报。",
+    "checkItem": "这个能回收吗？",
+    "checkItemSub": "丢弃前先查一查",
+    "viewDashboard": "查看我的成果"
+  },
+  "logReturn": {
+    "title": "记录一次退还",
+    "subtitle": "投入瓶罐后，扫描回收机屏幕上显示的代码。我们会先向押金系统确认，再发放积分。",
+    "codePlaceholder": "扫描或输入回收机代码（例如 PB-12345）",
+    "verifying": "验证中…",
+    "verify": "验证退还",
+    "failTitle": "无法验证",
+    "successPoints": "+{{count}} 积分！",
+    "countedTitle": "退还已计入！",
+    "cappedBody": "你已达到本周 {{cap}} 次退还的积分上限，因此这次不再获得积分——但它仍计入连续记录和你的环保成果。上限让游戏保持公平：你无法靠过度购买刷积分。",
+    "successBody": "已验证并计入连续记录。继续循环吧！"
+  },
+  "streaks": {
+    "title": "你的连续记录",
+    "subtitle": "每周一次已验证的退还就能延续。",
+    "weeksUnit": "周",
+    "best": "最佳：{{count}} 周",
+    "last8": "最近 8 周",
+    "pointsBalance": "积分余额",
+    "badges": "徽章",
+    "nextBadge": "下一个：{{label}} @ {{weeks}} 周"
+  },
+  "checker": {
+    "title": "这个能回收吗？",
+    "subtitle": "丢弃前先查一查——放错东西会毁掉整批回收物。",
+    "searchPlaceholder": "搜索：瓶子、罐子、珍珠奶茶、油腻盒子…",
+    "noMatch": "没有匹配项。试试更简单的词，如“杯”、“罐”或“盒”。",
+    "accepted": "可回收",
+    "notAccepted": "不可回收",
+    "depositRefund": "押金退还",
+    "why": "原因：",
+    "prep": "处理：",
+    "englishNote": "回收指引特意以英文显示——错误的翻译可能造成误导。经人工审核的翻译即将推出。"
+  },
+  "rewards": {
+    "title": "奖励",
+    "subtitle": "用积分为你的伙伴购买造型。",
+    "equipHint": "点击已拥有的物品来穿戴／卸下。",
+    "cosmeticShop": "装扮商店",
+    "room": "我的房间",
+    "roomSub": "用环保主题家具来布置。",
+    "marketplace": "商城",
+    "marketplaceStub": "实物奖励不在 v1 范围内。积分目前仅用于装扮——没有金钱，没有实物。这让游戏保持诚信。",
+    "equip": "穿戴",
+    "equipped": "已穿戴",
+    "owned": "已拥有",
+    "notEnough": "积分不足。",
+    "alreadyOwned": "已拥有。"
+  },
+  "extra": {
+    "title": "更多",
+    "subtitle": "赞助、游戏和惊喜——目前是占位内容。",
+    "sponsors": "赞助商",
+    "sponsorsStub": "赞助合作将显示在这里。",
+    "games": "小游戏",
+    "gamesStub": "回收小游戏计划在后续版本推出。",
+    "placeholderBanner": "整个标签页都是 v1 占位内容——目前尚无任何功能上线。"
+  },
+  "dashboard": {
+    "title": "我的成果",
+    "subtitle": "你的累计回收成果（估算）。",
+    "returns": "退还次数",
+    "co2Saved": "减少的 CO₂e",
+    "outOfLandfill": "减少的填埋",
+    "byType": "按容器类型",
+    "estimateNote": "用于激励的估算，基于平均生命周期数据。真实的单个容器系数将在日后从 NEA/BCRS 加载。",
+    "plastic_bottle": "塑料瓶",
+    "metal_can": "金属罐",
+    "glass_bottle": "玻璃瓶",
+    "carton": "纸盒"
+  },
+  "about": {
+    "title": "关于 ReLoop",
+    "mission": "我们的使命",
+    "missionBody": "ReLoop 让退还瓶罐成为值得坚持的习惯。我们在新加坡官方押金计划之上加入连续记录、积分和简短的回收知识——我们本身不处理你的押金或退款。",
+    "howTitle": "运作方式",
+    "howBody": "在 Return Right 站点退还容器，扫描确认码，我们验证后再发放积分。每一分都来自真实、已验证的退还。",
+    "disclaimer": "ReLoop 是建立在新加坡 BCRS“Return Right”押金计划之上的互动平台，并不取代它。"
+  },
+  "settings": {
+    "accountSection": "账户",
+    "impactSection": "累计成果",
+    "viewFullDashboard": "查看完整成果面板",
+    "notifications": "通知",
+    "about": "关于我们",
+    "aboutReturnRight": "关于 Return Right",
+    "resetData": "重置演示数据",
+    "resetConfirm": "重置所有本地数据？这将清除你的演示账户、连续记录和积分。",
+    "disclaimer": "ReLoop 是建立在新加坡 BCRS“Return Right”押金计划之上的互动平台，并不取代它。",
+    "signedInWith": "通过 {{method}} 登录"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "_meta": {
+    "status": "PARTIAL. Core nav + key UI labels translated (Tamil). Longer body strings are intentionally omitted and fall back to English — flagged TODO for a native Tamil reviewer. Recycling-critical item guidance (data/recyclables.ts) is intentionally NOT translated.",
+    "todo": [
+      "onboarding.* bodies",
+      "auth.* error + note strings",
+      "logReturn.cappedBody / successBody",
+      "checker.subtitle / englishNote",
+      "rewards.marketplaceStub",
+      "extra.* stubs",
+      "dashboard.estimateNote",
+      "about.* bodies",
+      "settings.resetConfirm / disclaimer"
+    ]
+  },
+  "lang": {
+    "label": "மொழி",
+    "en": "English",
+    "zh": "中文",
+    "ms": "Bahasa Melayu",
+    "ta": "தமிழ்"
+  },
+  "common": {
+    "next": "அடுத்து",
+    "back": "பின்",
+    "cancel": "ரத்து",
+    "done": "முடிந்தது",
+    "tryAgain": "மீண்டும் முயற்சி",
+    "comingSoon": "விரைவில்",
+    "locked": "பூட்டப்பட்டது",
+    "loading": "ஏற்றுகிறது"
+  },
+  "nav": {
+    "home": "முகப்பு",
+    "streaks": "தொடர்",
+    "rewards": "வெகுமதிகள்",
+    "extra": "கூடுதல்",
+    "settings": "அமைப்புகள்"
+  },
+  "onboarding": {
+    "getStarted": "தொடங்கு →",
+    "letsGo": "தொடங்குவோம்",
+    "didYouKnow": "உங்களுக்குத் தெரியுமா?"
+  },
+  "auth": {
+    "welcome": "ReLoop-க்கு வரவேற்கிறோம்",
+    "continueWithGoogle": "Google உடன் தொடரவும்",
+    "orDivider": "அல்லது",
+    "emailFallback": "மின்னஞ்சல் + கடவுச்சொல் பயன்படுத்தவும்",
+    "useGoogle": "Google ஐப் பயன்படுத்தவும்",
+    "displayName": "காட்சிப் பெயர் (விருப்பம்)",
+    "email": "மின்னஞ்சல்",
+    "password": "கடவுச்சொல்",
+    "continue": "தொடரவும்"
+  },
+  "avatar": {
+    "title": "உங்கள் தோழரைத் தேர்ந்தெடுக்கவும்",
+    "confirm": "அதுதான்"
+  },
+  "home": {
+    "welcomeBack": "மீண்டும் வரவேற்கிறோம்",
+    "weeklyStreak": "வாராந்திர தொடர்",
+    "weeks": "வா",
+    "pointsBalance": "புள்ளி இருப்பு",
+    "earningLeft": "இந்த வாரம் புள்ளி தரும் மீதமுள்ள திருப்பங்கள்",
+    "logReturn": "திருப்பத்தைப் பதிவு செய்",
+    "checkItem": "இதை மறுசுழற்சி செய்யலாமா?",
+    "checkItemSub": "தூக்கி எறிவதற்கு முன் சரிபார்க்கவும்",
+    "viewDashboard": "என் தாக்கத்தைக் காண்க"
+  },
+  "logReturn": {
+    "title": "திருப்பத்தைப் பதிவு செய்",
+    "verifying": "சரிபார்க்கிறது…",
+    "verify": "திருப்பத்தைச் சரிபார்",
+    "failTitle": "சரிபார்க்க முடியவில்லை",
+    "successPoints": "+{{count}} புள்ளிகள்!",
+    "countedTitle": "திருப்பம் கணக்கிடப்பட்டது!"
+  },
+  "streaks": {
+    "title": "உங்கள் தொடர்",
+    "weeksUnit": "வாரங்கள்",
+    "last8": "கடந்த 8 வாரங்கள்",
+    "pointsBalance": "புள்ளி இருப்பு",
+    "badges": "பதக்கங்கள்"
+  },
+  "checker": {
+    "title": "இதை மறுசுழற்சி செய்யலாமா?",
+    "accepted": "ஏற்கப்படும்",
+    "notAccepted": "ஏற்கப்படாது",
+    "depositRefund": "வைப்புத்தொகை திரும்பப்பெறல்",
+    "why": "ஏன்:",
+    "prep": "தயாரிப்பு:"
+  },
+  "rewards": {
+    "title": "வெகுமதிகள்",
+    "cosmeticShop": "அலங்காரக் கடை",
+    "room": "என் அறை",
+    "marketplace": "சந்தை",
+    "equip": "அணியவும்",
+    "equipped": "அணிந்துள்ளது",
+    "owned": "சொந்தமானது"
+  },
+  "extra": {
+    "title": "கூடுதல்"
+  },
+  "dashboard": {
+    "title": "என் தாக்கம்",
+    "returns": "திருப்பங்கள்",
+    "co2Saved": "CO₂e சேமிப்பு",
+    "outOfLandfill": "நிலக்கழிவிலிருந்து தவிர்க்கப்பட்டது",
+    "byType": "கொள்கலன் வகை வாரியாக",
+    "plastic_bottle": "பிளாஸ்டிக் பாட்டில்கள்",
+    "metal_can": "உலோக டின்கள்",
+    "glass_bottle": "கண்ணாடி பாட்டில்கள்",
+    "carton": "கார்டன்கள்"
+  },
+  "about": {
+    "title": "ReLoop பற்றி",
+    "mission": "எங்கள் நோக்கம்",
+    "howTitle": "இது எப்படி வேலை செய்கிறது"
+  },
+  "settings": {
+    "accountSection": "கணக்கு",
+    "impactSection": "வாழ்நாள் தாக்கம்",
+    "viewFullDashboard": "முழு டாஷ்போர்டைக் காண்க",
+    "notifications": "அறிவிப்புகள்",
+    "about": "எங்களைப் பற்றி",
+    "aboutReturnRight": "Return Right பற்றி",
+    "resetData": "டெமோ தரவை மீட்டமை"
+  }
+}
