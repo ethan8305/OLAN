@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { useStore } from '../../store/useStore';
 import { BADGES, nextBadge, unlockedBadges } from '../../data/badges';
 import { streakIsAlive } from '../../lib/streaks';
 import { isoWeekKey } from '../../lib/weeks';
 
 export function Streaks() {
+  const { t } = useTranslation();
   const { streak, points, returns } = useStore();
   const alive = streakIsAlive(streak);
   const unlocked = unlockedBadges(streak.longestStreakWeeks);
@@ -17,22 +19,26 @@ export function Streaks() {
   return (
     <div className="space-y-6 px-5 pt-6">
       <header>
-        <h1 className="text-2xl font-extrabold text-slate-800">Your streak</h1>
-        <p className="text-sm text-slate-400">One verified return a week keeps it burning.</p>
+        <h1 className="text-2xl font-extrabold text-slate-800">{t('streaks.title')}</h1>
+        <p className="text-sm text-slate-400">{t('streaks.subtitle')}</p>
       </header>
 
       <div className="flex items-center gap-4 rounded-3xl bg-gradient-to-br from-orange-400 to-rose-500 p-5 text-white shadow-lg">
         <div className="text-6xl">{alive ? '🔥' : '🥲'}</div>
         <div>
-          <p className="text-4xl font-extrabold">{streak.currentStreakWeeks} weeks</p>
-          <p className="text-sm text-white/90">Best: {streak.longestStreakWeeks} weeks</p>
+          <p className="text-4xl font-extrabold">
+            {streak.currentStreakWeeks} {t('streaks.weeksUnit')}
+          </p>
+          <p className="text-sm text-white/90">
+            {t('streaks.best', { count: streak.longestStreakWeeks })}
+          </p>
         </div>
       </div>
 
       {/* Weekly dots — Duolingo-style but per WEEK, not per day. */}
       <section>
         <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-slate-500">
-          Last 8 weeks
+          {t('streaks.last8')}
         </h2>
         <div className="flex justify-between gap-1.5">
           {recentWeeks.map((wk) => {
@@ -54,17 +60,22 @@ export function Streaks() {
       </section>
 
       <div className="rounded-2xl bg-white p-4 shadow-sm">
-        <p className="text-sm text-slate-400">Points balance</p>
+        <p className="text-sm text-slate-400">{t('streaks.pointsBalance')}</p>
         <p className="text-3xl font-extrabold text-slate-800">⭐ {points.toLocaleString()}</p>
       </div>
 
       {/* Badges */}
       <section>
         <div className="mb-2 flex items-center justify-between">
-          <h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Badges</h2>
+          <h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">
+            {t('streaks.badges')}
+          </h2>
           {upcoming && (
             <span className="text-xs text-slate-400">
-              Next: {upcoming.label} @ {upcoming.requiredStreakWeeks} wk
+              {t('streaks.nextBadge', {
+                label: upcoming.label,
+                weeks: upcoming.requiredStreakWeeks,
+              })}
             </span>
           )}
         </div>

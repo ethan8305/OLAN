@@ -1,0 +1,171 @@
+{
+  "_meta": {
+    "status": "Core nav + key screens translated (Bahasa Melayu). Recycling-critical item guidance (data/recyclables.ts) is intentionally NOT translated here pending human review."
+  },
+  "lang": {
+    "label": "Bahasa",
+    "en": "English",
+    "zh": "中文",
+    "ms": "Bahasa Melayu",
+    "ta": "தமிழ்"
+  },
+  "common": {
+    "next": "Seterusnya",
+    "back": "Kembali",
+    "cancel": "Batal",
+    "done": "Selesai",
+    "tryAgain": "Cuba lagi",
+    "comingSoon": "Akan datang",
+    "locked": "Dikunci",
+    "loading": "Memuatkan"
+  },
+  "nav": {
+    "home": "Utama",
+    "streaks": "Streak",
+    "rewards": "Ganjaran",
+    "extra": "Tambahan",
+    "settings": "Tetapan"
+  },
+  "onboarding": {
+    "welcomeTagline": "Lapisan seronok di atas Return Right. Kitar semula, bina streak, hiaskan rakan anda.",
+    "getStarted": "Mula →",
+    "letsGo": "Jom mula",
+    "slide1Title": "Pemulangan yang dikira",
+    "slide1Body": "ReLoop terletak di atas skim deposit Return Right Singapura. Setiap bekas yang anda pulangkan mendapat ganjaran — tetapi hanya apabila ia benar-benar dipulangkan.",
+    "slide2Title": "Bina streak mingguan",
+    "slide2Body": "Pulangkan sekurang-kurangnya satu bekas setiap minggu untuk mengekalkan streak anda. Terlepas seminggu, ia akan ditetapkan semula — jadikan ia tabiat, bukan beban.",
+    "slide3Title": "Kitar semula dengan betul, bukan sekadar kerap",
+    "slide3Body": "Tidak pasti sama ada sesuatu boleh dikitar semula? Semak sebelum membuangnya. Memasukkan barang yang salah merosakkan keseluruhan kumpulan.",
+    "didYouKnow": "Tahukah anda?"
+  },
+  "auth": {
+    "welcome": "Selamat datang ke ReLoop",
+    "subtitle": "Log masuk dengan Google supaya streak anda kekal milik anda — satu akaun setiap orang.",
+    "continueWithGoogle": "Teruskan dengan Google",
+    "orDivider": "atau",
+    "emailFallback": "Guna e-mel + kata laluan",
+    "useGoogle": "Guna Google",
+    "displayName": "Nama paparan (pilihan)",
+    "displayNamePlaceholder": "Pejuang Alam",
+    "email": "E-mel",
+    "emailPlaceholder": "anda@contoh.com",
+    "password": "Kata laluan",
+    "passwordPlaceholder": "••••••",
+    "continue": "Teruskan",
+    "errorEmail": "Masukkan alamat e-mel yang sah.",
+    "errorPassword": "Kata laluan mesti sekurang-kurangnya 4 aksara.",
+    "googleUnavailable": "Log masuk Google belum dikonfigurasikan. Tetapkan VITE_GOOGLE_CLIENT_ID, atau guna e-mel di bawah.",
+    "demoNote": "Versi demo: log masuk Google adalah sebenar; log masuk e-mel dan OTP telefon hanyalah palsu. Tiada SMS dihantar."
+  },
+  "avatar": {
+    "title": "Pilih rakan anda",
+    "subtitle": "Anda akan menghiasnya dengan mata yang anda peroleh daripada pemulangan sebenar.",
+    "confirm": "Itu dia"
+  },
+  "home": {
+    "welcomeBack": "Selamat kembali",
+    "weeklyStreak": "Streak mingguan",
+    "weeks": "mgg",
+    "secured": "Minggu ini selamat. Syabas!",
+    "keepAlive": "Pulangkan satu bekas minggu ini untuk mengekalkan streak anda.",
+    "cooled": "Streak anda telah reda — log satu pemulangan untuk mula semula.",
+    "pointsBalance": "Baki mata",
+    "earningLeft": "Pemulangan berbaki yang memberi mata minggu ini",
+    "logReturn": "Log pemulangan",
+    "verifiedOnly": "Mata hanya datang daripada pemulangan yang disahkan — tidak pernah secara amanah.",
+    "checkItem": "Boleh saya kitar semula ini?",
+    "checkItemSub": "Semak item sebelum membuangnya",
+    "viewDashboard": "Lihat impak saya"
+  },
+  "logReturn": {
+    "title": "Log pemulangan",
+    "subtitle": "Imbas kod yang dipaparkan pada mesin RVM selepas anda memasukkan botol atau tin. Kami sahkan dengan sistem deposit sebelum memberi sebarang mata.",
+    "codePlaceholder": "Imbas atau masukkan kod RVM (cth. PB-12345)",
+    "verifying": "Mengesahkan…",
+    "verify": "Sahkan pemulangan",
+    "failTitle": "Tidak dapat disahkan",
+    "successPoints": "+{{count}} mata!",
+    "countedTitle": "Pemulangan dikira!",
+    "cappedBody": "Anda telah mencapai had {{cap}} pemulangan untuk mata minggu ini, jadi yang ini tidak memberi mata — tetapi ia masih dikira untuk streak dan impak anda. Had ini memastikan permainan adil: anda tidak boleh mengaut mata dengan membeli berlebihan.",
+    "successBody": "Disahkan dan ditambah ke streak anda. Teruskan kitaran!"
+  },
+  "streaks": {
+    "title": "Streak anda",
+    "subtitle": "Satu pemulangan disahkan seminggu mengekalkannya.",
+    "weeksUnit": "minggu",
+    "best": "Terbaik: {{count}} minggu",
+    "last8": "8 minggu lepas",
+    "pointsBalance": "Baki mata",
+    "badges": "Lencana",
+    "nextBadge": "Seterusnya: {{label}} @ {{weeks}} mgg"
+  },
+  "checker": {
+    "title": "Boleh saya kitar semula ini?",
+    "subtitle": "Semak sebelum membuangnya — memasukkan barang yang salah merosakkan keseluruhan kumpulan.",
+    "searchPlaceholder": "Cari: botol, tin, bubble tea, kotak berminyak…",
+    "noMatch": "Tiada padanan. Cuba perkataan ringkas seperti “cawan”, “tin” atau “kotak”.",
+    "accepted": "Diterima",
+    "notAccepted": "Tidak diterima",
+    "depositRefund": "Bayaran balik deposit",
+    "why": "Sebab:",
+    "prep": "Penyediaan:",
+    "englishNote": "Panduan kitar semula dipaparkan dalam bahasa Inggeris dengan sengaja — terjemahan yang salah boleh mengelirukan. Terjemahan yang disemak manusia akan datang."
+  },
+  "rewards": {
+    "title": "Ganjaran",
+    "subtitle": "Belanja mata untuk penampilan rakan anda.",
+    "equipHint": "Ketik item yang dimiliki untuk pakai / tanggalkan.",
+    "cosmeticShop": "Kedai kosmetik",
+    "room": "Bilik saya",
+    "roomSub": "Hiaskan dengan perabot bertema kitar semula.",
+    "marketplace": "Pasaran",
+    "marketplaceStub": "Ganjaran dunia sebenar bukan sebahagian daripada v1. Mata kekal kosmetik buat masa ini — tiada wang, tiada barangan sebenar. Ini memastikan permainan jujur.",
+    "equip": "Pakai",
+    "equipped": "Dipakai",
+    "owned": "Dimiliki",
+    "notEnough": "Mata tidak mencukupi.",
+    "alreadyOwned": "Sudah dimiliki."
+  },
+  "extra": {
+    "title": "Tambahan",
+    "subtitle": "Penaja, permainan dan kejutan — buat masa ini hanya pemegang tempat.",
+    "sponsors": "Penaja",
+    "sponsorsStub": "Kerjasama penaja akan dipaparkan di sini.",
+    "games": "Permainan mini",
+    "gamesStub": "Permainan mini kitar semula dirancang untuk versi akan datang.",
+    "placeholderBanner": "Keseluruhan tab ini ialah pemegang tempat v1 — tiada apa-apa di sini yang aktif lagi."
+  },
+  "dashboard": {
+    "title": "Impak saya",
+    "subtitle": "Kitar semula sepanjang hayat anda, dianggarkan.",
+    "returns": "Pemulangan",
+    "co2Saved": "CO₂e dijimatkan",
+    "outOfLandfill": "Dijauhkan dari pelupusan",
+    "byType": "Mengikut jenis bekas",
+    "estimateNote": "Anggaran untuk motivasi, berdasarkan angka kitaran hayat purata. Faktor sebenar setiap bekas akan dimuatkan daripada NEA/BCRS kemudian.",
+    "plastic_bottle": "Botol plastik",
+    "metal_can": "Tin logam",
+    "glass_bottle": "Botol kaca",
+    "carton": "Karton"
+  },
+  "about": {
+    "title": "Tentang ReLoop",
+    "mission": "Misi kami",
+    "missionBody": "ReLoop menjadikan pemulangan botol dan tin satu tabiat yang berbaloi dikekalkan. Kami menambah streak, mata dan pendidikan kitar semula ringkas di atas skim deposit rasmi Singapura — kami tidak mengendalikan deposit atau bayaran balik anda sendiri.",
+    "howTitle": "Cara ia berfungsi",
+    "howBody": "Pulangkan bekas di pusat Return Right, imbas pengesahan, dan kami sahkan sebelum memberi mata. Setiap mata datang daripada pemulangan sebenar yang disahkan.",
+    "disclaimer": "ReLoop ialah lapisan penglibatan di atas skim deposit BCRS “Return Right” Singapura. Ia tidak menggantikannya."
+  },
+  "settings": {
+    "accountSection": "Akaun",
+    "impactSection": "Impak sepanjang hayat",
+    "viewFullDashboard": "Lihat papan pemuka penuh",
+    "notifications": "Pemberitahuan",
+    "about": "Tentang Kami",
+    "aboutReturnRight": "Tentang Return Right",
+    "resetData": "Tetapkan semula data demo",
+    "resetConfirm": "Tetapkan semula semua data tempatan? Ini memadam akaun demo, streak dan mata anda.",
+    "disclaimer": "ReLoop ialah lapisan penglibatan di atas skim deposit BCRS “Return Right” Singapura. Ia tidak menggantikannya.",
+    "signedInWith": "Log masuk dengan {{method}}"
+  }
+}

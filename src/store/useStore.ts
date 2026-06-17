@@ -18,7 +18,8 @@ import {
 } from '../lib/streaks';
 import { isoWeekKey } from '../lib/weeks';
 import { getCosmetic } from '../data/cosmetics';
-import type { AppData, ReturnEvent, User } from '../types/models';
+import { getFurniture } from '../data/furniture';
+import type { AppData, AuthMethod, ReturnEvent, User } from '../types/models';
 
 /** Result of attempting to log a return, surfaced to the UI. */
 export interface LogReturnOutcome {
@@ -37,11 +38,15 @@ interface StoreState extends AppData {
   hydrate: () => Promise<void>;
   completeOnboarding: () => void;
 
-  /** Create or sign in the single local user. Phone is the identity key. */
+  /**
+   * Create or sign in the single local user. Email (Google) is the identity key
+   * for v1; phone is reserved for the deferred SMS-OTP control.
+   */
   authenticate: (args: {
-    phone: string;
+    method: AuthMethod;
+    email?: string | null;
+    phone?: string | null;
     displayName?: string;
-    oauthGoogle?: boolean;
   }) => void;
 
   setAvatar: (avatarId: string) => void;
@@ -51,6 +56,10 @@ interface StoreState extends AppData {
 
   buyCosmetic: (itemId: string) => { ok: boolean; reason?: string };
   toggleEquip: (itemId: string) => void;
+
+  /** Room furniture (cosmetic placeholders) — same closed points economy. */
+  buyFurniture: (itemId: string) => { ok: boolean; reason?: string };
+  toggleRoomItem: (itemId: string) => void;
 
   resetAll: () => Promise<void>;
 }
@@ -80,23 +89,31 @@ export const useStore = create<StoreState>((set, get) => ({
     persist(get());
   },
 
-  authenticate({ phone, displayName, oauthGoogle }) {
+  authenticate({ method, email = null, phone = null, displayName }) {
     const existing = get().user;
-    // Reuse the existing user if the same phone signs back in, so streak/points
-    // survive. Phone == identity; a different phone is a different account.
-    const user: User =
-      existing && existing.phone === phone
-        ? existing
-        : {
-            id: `user-${phone}`,
-            phone,
-            displayName: displayName?.trim() || 'Recycler',
-            oauthGoogle: Boolean(oauthGoogle),
-            avatarId: '',
-            ownedItemIds: [],
-            equippedItemIds: [],
-            createdAt: new Date().toISOString(),
-          };
+    // Identity key: email (Google/email) preferred, else phone. Reuse the
+    // existing user when the same identity signs back in so streak/points
+    // survive. A different identity is a different account.
+    const key = email ?? phone ?? 'anon';
+    const sameIdentity =
+      existing != null &&
+      ((email != null && existing.email === email) ||
+        (phone != null && existing.phone === phone));
+
+    const user: User = sameIdentity
+      ? existing!
+      : {
+          id: `user-${key}`,
+          authMethod: method,
+          email,
+          phone,
+          displayName: displayName?.trim() || 'Recycler',
+          avatarId: '',
+          ownedItemIds: [],
+          equippedItemIds: [],
+          roomItemIds: [],
+          createdAt: new Date().toISOString(),
+        };
     set({ user });
     persist(get());
   },
@@ -200,6 +217,38 @@ export const useStore = create<StoreState>((set, get) => ({
     if (!isEquipped) equipped = [...equipped, itemId];
 
     set({ user: { ...user, equippedItemIds: equipped } });
+    persist(get());
+  },
+
+  buyFurniture(itemId) {
+    const { user, points } = get();
+    if (!user) return { ok: false, reason: 'Not signed in.' };
+    const item = getFurniture(itemId);
+    if (!item) return { ok: false, reason: 'Unknown item.' };
+    if (user.ownedItemIds.includes(itemId)) return { ok: false, reason: 'Already owned.' };
+    if (points < item.pricePoints) return { ok: false, reason: 'Not enough points.' };
+
+    // Buying both owns it and places it in the room.
+    set({
+      points: points - item.pricePoints,
+      user: {
+        ...user,
+        ownedItemIds: [...user.ownedItemIds, itemId],
+        roomItemIds: [...user.roomItemIds, itemId],
+      },
+    });
+    persist(get());
+    return { ok: true };
+  },
+
+  toggleRoomItem(itemId) {
+    const user = get().user;
+    if (!user || !user.ownedItemIds.includes(itemId)) return;
+    const placed = user.roomItemIds.includes(itemId);
+    const roomItemIds = placed
+      ? user.roomItemIds.filter((id) => id !== itemId)
+      : [...user.roomItemIds, itemId];
+    set({ user: { ...user, roomItemIds } });
     persist(get());
   },
 

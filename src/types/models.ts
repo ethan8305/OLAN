@@ -14,23 +14,37 @@
  */
 export type ContainerType = 'plastic_bottle' | 'metal_can' | 'glass_bottle' | 'carton';
 
+export type AuthMethod = 'google' | 'email' | 'phone';
+
 export interface User {
   id: string;
   /**
-   * Phone number is the PRIMARY identity and the anti-multi-accounting control.
-   * One verified phone == one streak == one points wallet. See auth comments and
-   * verifyReturn() — points fraud is mostly defeated at the identity layer, not
-   * the points layer, so we treat phone as a first-class, immutable-ish key.
+   * How the account was created. Google is the PRIMARY method (see Auth screen).
    */
-  phone: string;
+  authMethod: AuthMethod;
+  /**
+   * Email is the PRIMARY identity and anti-multi-accounting control for v1.
+   * One verified Google account == one streak == one points wallet. Points fraud
+   * is mostly defeated at the identity layer, not the points layer, so identity
+   * is treated as a first-class key.
+   */
+  email: string | null;
+  /**
+   * Phone identity is DEFERRED. Phone + SMS OTP is the stronger long-term
+   * anti-multi-accounting control, but real OTP needs paid SMS infrastructure
+   * and can't be tested locally — so it's a stub for now (see Auth screen + the
+   * out-of-scope list). Kept on the model so it can become the identity key
+   * later without a migration.
+   */
+  phone: string | null;
   displayName: string;
-  /** True when the account was created via Google OAuth (still phone-bound). */
-  oauthGoogle: boolean;
   avatarId: string;
   /** Cosmetic items the user owns (rewards are cosmetic-only in v1). */
   ownedItemIds: string[];
   /** Cosmetic items currently equipped on the avatar. */
   equippedItemIds: string[];
+  /** Recycled-themed furniture placed in the user's room (cosmetic placeholder). */
+  roomItemIds: string[];
   createdAt: string; // ISO
 }
 

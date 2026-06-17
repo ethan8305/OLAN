@@ -32,7 +32,22 @@ export const localRepository: Repository = {
       if (!raw) return freshAppData();
       const parsed = JSON.parse(raw) as Partial<AppData>;
       // Merge over a fresh shape so older/missing fields can't crash the app.
-      return { ...freshAppData(), ...parsed };
+      const merged = { ...freshAppData(), ...parsed };
+      // Normalise the user so a record saved under an older schema (before
+      // email/roomItemIds existed) can't crash newer screens.
+      if (merged.user) {
+        const u = merged.user as Partial<AppData['user']> & Record<string, unknown>;
+        merged.user = {
+          ...(u as object),
+          email: (u.email as string | null) ?? null,
+          phone: (u.phone as string | null) ?? null,
+          authMethod: (u.authMethod as 'google' | 'email' | 'phone') ?? 'email',
+          ownedItemIds: (u.ownedItemIds as string[]) ?? [],
+          equippedItemIds: (u.equippedItemIds as string[]) ?? [],
+          roomItemIds: (u.roomItemIds as string[]) ?? [],
+        } as AppData['user'];
+      }
+      return merged;
     } catch {
       return freshAppData();
     }

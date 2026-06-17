@@ -10,7 +10,12 @@ import { Home } from './screens/Home/Home';
 import { Streaks } from './screens/Streaks/Streaks';
 import { Checker } from './screens/Checker/Checker';
 import { Rewards } from './screens/Rewards/Rewards';
+import { Extra } from './screens/Extra/Extra';
 import { Settings } from './screens/Settings/Settings';
+import { Dashboard } from './screens/Dashboard/Dashboard';
+import { About } from './screens/About/About';
+
+const SETUP_ROUTES = ['/onboarding', '/auth', '/avatar'];
 
 /**
  * Decides where the user belongs based on setup progress:
@@ -21,14 +26,12 @@ function useSetupRedirect(): string | null {
   const { onboarded, user } = useStore();
   const { pathname } = useLocation();
 
-  const setupRoutes = ['/onboarding', '/auth', '/avatar'];
-
   if (!onboarded) return pathname === '/onboarding' ? null : '/onboarding';
   if (!user) return pathname === '/auth' ? null : '/auth';
   if (!user.avatarId) return pathname === '/avatar' ? null : '/avatar';
 
   // Setup complete — don't let the user sit on a setup screen.
-  if (setupRoutes.includes(pathname) || pathname === '/') return '/home';
+  if (SETUP_ROUTES.includes(pathname) || pathname === '/') return '/home';
   return null;
 }
 
@@ -37,9 +40,7 @@ function Gate() {
   const { pathname } = useLocation();
   if (redirect && redirect !== pathname) return <Navigate to={redirect} replace />;
 
-  const isSetup = ['/onboarding', '/auth', '/avatar'].includes(pathname);
-
-  if (isSetup) {
+  if (SETUP_ROUTES.includes(pathname)) {
     return (
       <Routes>
         <Route path="/onboarding" element={<Onboarding />} />
@@ -55,9 +56,13 @@ function Gate() {
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/streaks" element={<Streaks />} />
-        <Route path="/checker" element={<Checker />} />
         <Route path="/rewards" element={<Rewards />} />
+        <Route path="/extra" element={<Extra />} />
         <Route path="/settings" element={<Settings />} />
+        {/* Off-nav but first-class / supporting screens. */}
+        <Route path="/checker" element={<Checker />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
     </AppLayout>

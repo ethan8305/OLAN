@@ -1,29 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../../components/Button';
+import { LanguageSwitcher } from '../../components/LanguageSwitcher';
 import { useStore } from '../../store/useStore';
 import { randomTip } from '../../data/tips';
 
 type Phase = 'welcome' | 'slides' | 'loading';
 
-const SLIDES = [
-  {
-    emoji: '♻️',
-    title: 'Returns that count',
-    body: 'ReLoop sits on top of Singapore’s Return Right deposit scheme. Every container you return earns rewards — but only when it’s really returned.',
-    bg: 'from-brand-400 to-brand-600',
-  },
-  {
-    emoji: '🔥',
-    title: 'Build a weekly streak',
-    body: 'Return at least one container each week to keep your streak alive. Miss a week and it resets — so make it a habit, not a chore.',
-    bg: 'from-amber-400 to-orange-500',
-  },
-  {
-    emoji: '🔎',
-    title: 'Recycle right, not just often',
-    body: 'Not sure if something is recyclable? Check before you bin it. Putting the wrong thing in spoils the whole batch.',
-    bg: 'from-teal-400 to-cyan-600',
-  },
+const SLIDE_KEYS = [
+  { titleKey: 'onboarding.slide1Title', bodyKey: 'onboarding.slide1Body', emoji: '♻️', bg: 'from-brand-400 to-brand-600' },
+  { titleKey: 'onboarding.slide2Title', bodyKey: 'onboarding.slide2Body', emoji: '🔥', bg: 'from-amber-400 to-orange-500' },
+  { titleKey: 'onboarding.slide3Title', bodyKey: 'onboarding.slide3Body', emoji: '🔎', bg: 'from-teal-400 to-cyan-600' },
 ];
 
 export function Onboarding() {
@@ -35,44 +22,44 @@ export function Onboarding() {
 }
 
 function Welcome({ onStart }: { onStart: () => void }) {
+  const { t } = useTranslation();
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-gradient-to-br from-brand-500 via-brand-600 to-emerald-700 px-8 text-center text-white">
       <div className="animate-pop-in text-8xl">♻️</div>
       <div className="space-y-3">
         <h1 className="text-4xl font-extrabold tracking-tight">ReLoop</h1>
-        <p className="text-lg text-brand-50/90">
-          The fun layer on top of Return Right. Recycle, build streaks, dress up your buddy.
-        </p>
+        <p className="text-lg text-brand-50/90">{t('onboarding.welcomeTagline')}</p>
       </div>
       <div className="w-full max-w-xs">
         <Button variant="secondary" onClick={onStart}>
-          Get started →
+          {t('onboarding.getStarted')}
         </Button>
       </div>
+      {/* Language switcher on the welcome screen (also in Settings). */}
+      <LanguageSwitcher variant="dark" />
     </div>
   );
 }
 
 function Slides({ onDone }: { onDone: () => void }) {
+  const { t } = useTranslation();
   const scroller = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
 
-  // Track which slide is centred so the dots + button label stay in sync.
   function onScroll() {
     const el = scroller.current;
     if (!el) return;
-    const i = Math.round(el.scrollLeft / el.clientWidth);
-    setIndex(i);
+    setIndex(Math.round(el.scrollLeft / el.clientWidth));
   }
 
   function goNext() {
     const el = scroller.current;
     if (!el) return;
-    if (index >= SLIDES.length - 1) return onDone();
+    if (index >= SLIDE_KEYS.length - 1) return onDone();
     el.scrollTo({ left: (index + 1) * el.clientWidth, behavior: 'smooth' });
   }
 
-  const isLast = index >= SLIDES.length - 1;
+  const isLast = index >= SLIDE_KEYS.length - 1;
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -81,46 +68,45 @@ function Slides({ onDone }: { onDone: () => void }) {
         onScroll={onScroll}
         className="no-scrollbar flex flex-1 snap-x snap-mandatory overflow-x-auto"
       >
-        {SLIDES.map((s) => (
+        {SLIDE_KEYS.map((s) => (
           <section
-            key={s.title}
+            key={s.titleKey}
             className={`flex min-w-full snap-center flex-col items-center justify-center gap-6 bg-gradient-to-br ${s.bg} px-10 text-center text-white`}
           >
             <div className="text-8xl">{s.emoji}</div>
-            <h2 className="text-3xl font-extrabold">{s.title}</h2>
-            <p className="max-w-xs text-lg text-white/90">{s.body}</p>
+            <h2 className="text-3xl font-extrabold">{t(s.titleKey)}</h2>
+            <p className="max-w-xs text-lg text-white/90">{t(s.bodyKey)}</p>
           </section>
         ))}
       </div>
 
       <div className="space-y-4 bg-white px-8 py-6">
         <div className="flex justify-center gap-2">
-          {SLIDES.map((s, i) => (
+          {SLIDE_KEYS.map((s, i) => (
             <span
-              key={s.title}
+              key={s.titleKey}
               className={`h-2 rounded-full transition-all ${
                 i === index ? 'w-6 bg-brand-600' : 'w-2 bg-slate-300'
               }`}
             />
           ))}
         </div>
-        <Button onClick={goNext}>{isLast ? 'Let’s go' : 'Next'}</Button>
+        <Button onClick={goNext}>{isLast ? t('onboarding.letsGo') : t('common.next')}</Button>
       </div>
     </div>
   );
 }
 
-/**
- * Loading screen shown before entering the app. Displays a rotating recycling
- * TIP (a new random one each mount) so the wait is itself educational.
- */
+/** Loading screen with a rotating recycling TIP (new random one each mount). */
 function LoadingTip() {
+  const { t } = useTranslation();
   const completeOnboarding = useStore((s) => s.completeOnboarding);
+  // Tips are recycling-critical facts, kept in English on purpose (see tips.ts).
   const [tip] = useState(randomTip);
 
   useEffect(() => {
-    const t = setTimeout(completeOnboarding, 2200);
-    return () => clearTimeout(t);
+    const timer = setTimeout(completeOnboarding, 2200);
+    return () => clearTimeout(timer);
   }, [completeOnboarding]);
 
   return (
@@ -128,7 +114,7 @@ function LoadingTip() {
       <div className="h-14 w-14 animate-spin rounded-full border-4 border-white/30 border-t-white" />
       <div className="space-y-2">
         <p className="text-sm font-semibold uppercase tracking-widest text-brand-100">
-          Did you know?
+          {t('onboarding.didYouKnow')}
         </p>
         <p className="text-xl font-medium leading-relaxed">{tip}</p>
       </div>

@@ -1,0 +1,168 @@
+{
+  "lang": {
+    "label": "Language",
+    "en": "English",
+    "zh": "中文",
+    "ms": "Bahasa Melayu",
+    "ta": "தமிழ்"
+  },
+  "common": {
+    "next": "Next",
+    "back": "Back",
+    "cancel": "Cancel",
+    "done": "Done",
+    "tryAgain": "Try again",
+    "comingSoon": "Coming soon",
+    "locked": "Locked",
+    "loading": "Loading"
+  },
+  "nav": {
+    "home": "Home",
+    "streaks": "Streaks",
+    "rewards": "Rewards",
+    "extra": "Extra",
+    "settings": "Settings"
+  },
+  "onboarding": {
+    "welcomeTagline": "The fun layer on top of Return Right. Recycle, build streaks, dress up your buddy.",
+    "getStarted": "Get started →",
+    "letsGo": "Let’s go",
+    "slide1Title": "Returns that count",
+    "slide1Body": "ReLoop sits on top of Singapore’s Return Right deposit scheme. Every container you return earns rewards — but only when it’s really returned.",
+    "slide2Title": "Build a weekly streak",
+    "slide2Body": "Return at least one container each week to keep your streak alive. Miss a week and it resets — so make it a habit, not a chore.",
+    "slide3Title": "Recycle right, not just often",
+    "slide3Body": "Not sure if something is recyclable? Check before you bin it. Putting the wrong thing in spoils the whole batch.",
+    "didYouKnow": "Did you know?"
+  },
+  "auth": {
+    "welcome": "Welcome to ReLoop",
+    "subtitle": "Sign in with Google to keep your streak yours — one account per person.",
+    "continueWithGoogle": "Continue with Google",
+    "orDivider": "or",
+    "emailFallback": "Use email + password instead",
+    "useGoogle": "Use Google instead",
+    "displayName": "Display name (optional)",
+    "displayNamePlaceholder": "Eco Warrior",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "password": "Password",
+    "passwordPlaceholder": "••••••",
+    "continue": "Continue",
+    "errorEmail": "Enter a valid email address.",
+    "errorPassword": "Password must be at least 4 characters.",
+    "googleUnavailable": "Google sign-in isn’t configured. Set VITE_GOOGLE_CLIENT_ID, or use email below.",
+    "demoNote": "Demo build: Google sign-in is real; email login and phone OTP are stubs. No SMS is sent."
+  },
+  "avatar": {
+    "title": "Pick your buddy",
+    "subtitle": "You’ll dress them up with points you earn from real returns.",
+    "confirm": "That’s the one"
+  },
+  "home": {
+    "welcomeBack": "Welcome back",
+    "weeklyStreak": "Weekly streak",
+    "weeks": "wk",
+    "secured": "This week is secured. Nice work!",
+    "keepAlive": "Return one container this week to keep your streak alive.",
+    "cooled": "Your streak has cooled off — log a return to start a new one.",
+    "pointsBalance": "Points balance",
+    "earningLeft": "Point-earning returns left this week",
+    "logReturn": "Log a return",
+    "verifiedOnly": "Points only come from verified returns — never the honour system.",
+    "checkItem": "Can I recycle this?",
+    "checkItemSub": "Check an item before you bin it",
+    "viewDashboard": "View my impact"
+  },
+  "logReturn": {
+    "title": "Log a return",
+    "subtitle": "Scan the code shown on the RVM after you drop your bottle or can. We confirm it with the deposit system before awarding any points.",
+    "codePlaceholder": "Scan or enter RVM code (e.g. PB-12345)",
+    "verifying": "Verifying…",
+    "verify": "Verify return",
+    "failTitle": "Couldn’t verify that",
+    "successPoints": "+{{count}} points!",
+    "countedTitle": "Return counted!",
+    "cappedBody": "You’ve hit this week’s {{cap}}-return points cap, so this one earns no points — but it still counts toward your streak and your impact. The cap keeps the game fair: you can’t farm points by over-buying.",
+    "successBody": "Verified and added to your streak. Keep looping!"
+  },
+  "streaks": {
+    "title": "Your streak",
+    "subtitle": "One verified return a week keeps it burning.",
+    "weeksUnit": "weeks",
+    "best": "Best: {{count}} weeks",
+    "last8": "Last 8 weeks",
+    "pointsBalance": "Points balance",
+    "badges": "Badges",
+    "nextBadge": "Next: {{label}} @ {{weeks}} wk"
+  },
+  "checker": {
+    "title": "Can I recycle this?",
+    "subtitle": "Check before you bin it — putting the wrong thing in spoils the whole batch.",
+    "searchPlaceholder": "Search: bottle, can, bubble tea, greasy box…",
+    "noMatch": "No match. Try a simpler word like “cup”, “can” or “box”.",
+    "accepted": "Accepted",
+    "notAccepted": "Not accepted",
+    "depositRefund": "Deposit refund",
+    "why": "Why:",
+    "prep": "Prep:",
+    "englishNote": "Recycling guidance is shown in English on purpose — a mistranslated instruction could mislead. Human-reviewed translations are coming."
+  },
+  "rewards": {
+    "title": "Rewards",
+    "subtitle": "Spend points on looks for your buddy.",
+    "equipHint": "Tap an owned item to equip / unequip it.",
+    "cosmeticShop": "Cosmetic shop",
+    "room": "My room",
+    "roomSub": "Decorate with recycled-themed furniture.",
+    "marketplace": "Marketplace",
+    "marketplaceStub": "Real-world rewards aren’t part of v1. Points stay cosmetic for now — no money, no real goods. This keeps the game honest.",
+    "equip": "Equip",
+    "equipped": "Equipped",
+    "owned": "Owned",
+    "notEnough": "Not enough points.",
+    "alreadyOwned": "Already owned."
+  },
+  "extra": {
+    "title": "Extra",
+    "subtitle": "Sponsors, games and surprises — a placeholder for now.",
+    "sponsors": "Sponsors",
+    "sponsorsStub": "Sponsor tie-ins will live here.",
+    "games": "Mini-games",
+    "gamesStub": "Recycling mini-games are planned for a later version.",
+    "placeholderBanner": "This whole tab is a v1 placeholder — nothing here is live yet."
+  },
+  "dashboard": {
+    "title": "My impact",
+    "subtitle": "Your lifetime recycling, estimated.",
+    "returns": "Returns",
+    "co2Saved": "CO₂e saved",
+    "outOfLandfill": "Out of landfill",
+    "byType": "By container type",
+    "estimateNote": "Estimates for motivation, based on average life-cycle figures. Real per-container factors load from NEA/BCRS later.",
+    "plastic_bottle": "Plastic bottles",
+    "metal_can": "Metal cans",
+    "glass_bottle": "Glass bottles",
+    "carton": "Cartons"
+  },
+  "about": {
+    "title": "About ReLoop",
+    "mission": "Our mission",
+    "missionBody": "ReLoop makes returning your bottles and cans a habit worth keeping. We add streaks, points and bite-sized recycling education on top of Singapore’s official deposit scheme — we don’t handle your deposit or refund ourselves.",
+    "howTitle": "How it works",
+    "howBody": "Return a container at a Return Right point, scan the confirmation, and we verify it before awarding points. Every point comes from a real, verified return.",
+    "disclaimer": "ReLoop is an engagement layer on top of Singapore’s BCRS “Return Right” deposit scheme. It does not replace it."
+  },
+  "settings": {
+    "accountSection": "Account",
+    "impactSection": "Lifetime impact",
+    "viewFullDashboard": "View full dashboard",
+    "notifications": "Notifications",
+    "about": "About Us",
+    "aboutReturnRight": "About Return Right",
+    "resetData": "Reset demo data",
+    "resetConfirm": "Reset all local data? This clears your demo account, streak and points.",
+    "disclaimer": "ReLoop is an engagement layer on top of Singapore’s BCRS “Return Right” deposit scheme. It does not replace it.",
+    "signedInWith": "Signed in with {{method}}"
+  }
+}
